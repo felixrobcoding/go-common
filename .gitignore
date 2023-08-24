@@ -1,0 +1,7 @@
+*.exe
+debug
+test
+log
+.vscode/
+go.sum
+.idea
