@@ -1,8 +1,8 @@
 package event_bus
 
 import (
-	"cp.wjaiot.net/cloud-server/smarlife/SaaSBP/go-common/snowflake"
 	"fmt"
+	"github.com/felixrobcoding/go-common/snowflake"
 	"time"
 )
 

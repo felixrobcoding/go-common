@@ -1,8 +1,8 @@
 package event_bus
 
 import (
-	"cp.wjaiot.net/cloud-server/smarlife/SaaSBP/go-common/kafka"
 	"fmt"
+	"github.com/felixrobcoding/go-common/kafka"
 	"time"
 )
 

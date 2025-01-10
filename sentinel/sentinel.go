@@ -1,12 +1,12 @@
 package sentinel
 
 import (
-	"cp.wjaiot.net/cloud-server/smarlife/SaaSBP/go-common/sentinel/etcdv3"
 	"fmt"
 	sentinel "github.com/alibaba/sentinel-golang/api"
 	"github.com/alibaba/sentinel-golang/core/config"
 	"github.com/alibaba/sentinel-golang/ext/datasource"
 	"github.com/alibaba/sentinel-golang/logging"
+	"github.com/felixrobcoding/go-common/sentinel/etcdv3"
 	"go.etcd.io/etcd/client/v3"
 	"time"
 )

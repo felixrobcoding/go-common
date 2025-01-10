@@ -1,4 +1,4 @@
-module cp.wjaiot.net/cloud-server/smarlife/SaaSBP/go-common
+module github.com/felixrobcoding/go-common
 
 go 1.20
 

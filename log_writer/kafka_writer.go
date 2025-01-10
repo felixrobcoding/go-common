@@ -1,6 +1,6 @@
 package log_writer
 
-import "cp.wjaiot.net/cloud-server/smarlife/SaaSBP/go-common/kafka"
+import "github.com/felixrobcoding/go-common/kafka"
 
 // KafkaWriter 为 logger 提供写入 kafka 队列的 io 接口
 type KafkaWriter struct {

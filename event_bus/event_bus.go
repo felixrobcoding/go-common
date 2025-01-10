@@ -2,11 +2,11 @@ package event_bus
 
 import (
 	"context"
-	"cp.wjaiot.net/cloud-server/smarlife/SaaSBP/go-common/goroutine_pool"
-	libTrace "cp.wjaiot.net/cloud-server/smarlife/SaaSBP/go-common/lib/trace"
-	"cp.wjaiot.net/cloud-server/smarlife/SaaSBP/go-common/utiltools"
 	"encoding/json"
 	"fmt"
+	"github.com/felixrobcoding/go-common/goroutine_pool"
+	libTrace "github.com/felixrobcoding/go-common/lib/trace"
+	"github.com/felixrobcoding/go-common/utiltools"
 	"go-micro.dev/v4/metadata"
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/attribute"

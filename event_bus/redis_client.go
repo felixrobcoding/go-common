@@ -2,8 +2,8 @@ package event_bus
 
 import (
 	"context"
-	"cp.wjaiot.net/cloud-server/smarlife/SaaSBP/go-common/redis"
 	"fmt"
+	"github.com/felixrobcoding/go-common/redis"
 	Redis "github.com/go-redis/redis/v8"
 	"time"
 )

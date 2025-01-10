@@ -2,10 +2,10 @@ package retry_handler
 
 import (
 	"context"
-	"cp.wjaiot.net/cloud-server/smarlife/SaaSBP/go-common/asynq"
-	"cp.wjaiot.net/cloud-server/smarlife/SaaSBP/go-common/utiltools"
 	"encoding/json"
 	"fmt"
+	"github.com/felixrobcoding/go-common/asynq"
+	"github.com/felixrobcoding/go-common/utiltools"
 	"testing"
 	"time"
 )

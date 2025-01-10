@@ -1,9 +1,9 @@
 package cache
 
 import (
-	"cp.wjaiot.net/cloud-server/smarlife/SaaSBP/go-common/redis"
 	"encoding/json"
 	"fmt"
+	"github.com/felixrobcoding/go-common/redis"
 	Redis "github.com/go-redis/redis/v8"
 	gonanoid "github.com/matoous/go-nanoid"
 	"github.com/patrickmn/go-cache"

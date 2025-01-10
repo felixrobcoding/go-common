@@ -2,10 +2,10 @@ package event_bus
 
 import (
 	"context"
-	"cp.wjaiot.net/cloud-server/smarlife/SaaSBP/go-common/goroutine_pool"
-	"cp.wjaiot.net/cloud-server/smarlife/SaaSBP/go-common/kafka"
 	"fmt"
 	"github.com/Shopify/sarama"
+	"github.com/felixrobcoding/go-common/goroutine_pool"
+	"github.com/felixrobcoding/go-common/kafka"
 	"strings"
 	"time"
 )
