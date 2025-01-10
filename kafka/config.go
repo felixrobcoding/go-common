@@ -4,7 +4,11 @@ type KafkaConfig struct {
 	// 一般配置
 	Enabled     bool
 	Connections []string
-	GroupId     string
+
+	// 消费协程数量，最少一个
+	TaskGoroutineCount int
+	// 消费分组Id
+	GroupId string
 	// 消费端topic
 	ListenTopics []string
 
@@ -15,6 +19,7 @@ type KafkaConfig struct {
 }
 
 type Config struct {
-	Producer KafkaConfig
-	Consumer KafkaConfig
+	Producer       KafkaConfig
+	Consumer       KafkaConfig
+	IsNewestOffset bool
 }

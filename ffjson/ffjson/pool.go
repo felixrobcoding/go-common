@@ -18,7 +18,7 @@ package ffjson
  */
 
 import (
-	fflib "go-common/ffjson/fflib/v1"
+	fflib "cp.wjaiot.net/cloud-server/smarlife/SaaSBP/go-common/ffjson/fflib/v1"
 )
 
 // Send a buffer to the Pool to reuse for other instances.

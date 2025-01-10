@@ -23,7 +23,7 @@
 package v1
 
 import (
-	"go-common/ffjson/fflib/v1/internal"
+	"cp.wjaiot.net/cloud-server/smarlife/SaaSBP/go-common/ffjson/fflib/v1/internal"
 )
 
 func ParseFloat(s []byte, bitSize int) (f float64, err error) {

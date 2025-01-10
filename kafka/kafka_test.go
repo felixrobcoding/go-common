@@ -8,7 +8,7 @@ import (
 )
 
 func TestKafkaClient(t *testing.T) {
-	topic := "test"
+	topic := "test_log"
 	// 构建配置
 	connections := []string{"159.75.112.37:9092"}
 	conf := Config{
@@ -33,17 +33,20 @@ func TestKafkaClient(t *testing.T) {
 		panic(err)
 	}
 
-	go func() {
-		time.Sleep(time.Second * 10)
-		// 发送消息
-		err := k.SendMessage(topic, []byte("hello world"))
-		if err != nil {
-			fmt.Println("SendMessage err:", err)
-			return
+	/*	go func() {
+		for {
+			time.Sleep(time.Second * 5)
+			// 发送消息
+			err := k.SendMessage(topic, []byte("hello world"))
+			if err != nil {
+				fmt.Println("SendMessage err:", err)
+				return
+			}
 		}
-	}()
 
-	time.Sleep(time.Second * 30)
+	}()*/
+
+	time.Sleep(time.Second * 1000)
 	return
 }
 

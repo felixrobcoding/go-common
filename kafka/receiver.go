@@ -25,6 +25,10 @@ func (consume ConsumeReceiver) ConsumeClaim(session sarama.ConsumerGroupSession,
 
 	// 最大任务
 	taskMax := 1
+	if taskGoroutineCount > 0 {
+		taskMax = taskGoroutineCount
+	}
+
 	taskChan := make(chan *sarama.ConsumerMessage, taskMax)
 
 	// 初始化任务

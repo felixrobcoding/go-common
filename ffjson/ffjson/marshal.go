@@ -18,9 +18,9 @@ package ffjson
  */
 
 import (
+	fflib "cp.wjaiot.net/cloud-server/smarlife/SaaSBP/go-common/ffjson/fflib/v1"
 	"encoding/json"
 	"errors"
-	fflib "go-common/ffjson/fflib/v1"
 	"reflect"
 )
 

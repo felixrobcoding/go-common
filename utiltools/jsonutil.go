@@ -1,7 +1,7 @@
 package utiltools
 
 import (
-	"go-common/ffjson/ffjson"
+	"cp.wjaiot.net/cloud-server/smarlife/SaaSBP/go-common/ffjson/ffjson"
 	"log"
 )
 

@@ -22,7 +22,7 @@ func TestSnowflake(t *testing.T) {
 	var count atomic.Int32
 	var check sync.Map
 	t1 := time.Now()
-	for i := 0; i < 200000; i++ {
+	for i := 0; i < 2000000; i++ {
 		wg.Add(1)
 		go func() {
 			defer wg.Done()

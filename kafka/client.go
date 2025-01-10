@@ -8,8 +8,9 @@ import (
 )
 
 var (
-	wg          = &sync.WaitGroup{}
-	ctx, cancel = context.WithCancel(context.Background())
+	taskGoroutineCount int
+	wg                 = &sync.WaitGroup{}
+	ctx, cancel        = context.WithCancel(context.Background())
 )
 
 type KafkaClient struct {
@@ -22,9 +23,10 @@ func NewKafkaClient(conf Config) *KafkaClient {
 	k := &KafkaClient{
 		conf: conf,
 	}
-
+	// 消费的协程数量
+	taskGoroutineCount = conf.Consumer.TaskGoroutineCount
 	k.producer = k.newProducer()
-	k.consumer = k.newConsumer()
+	k.consumer = k.newConsumer(conf.IsNewestOffset)
 	return k
 }
 
@@ -50,14 +52,18 @@ func (kafkaClient *KafkaClient) newProducer() sarama.SyncProducer {
 	return kafkaClient.producer
 }
 
-func (kafkaClient *KafkaClient) newConsumer() sarama.ConsumerGroup {
+func (kafkaClient *KafkaClient) newConsumer(isNewestOffset bool) sarama.ConsumerGroup {
+	offset := sarama.OffsetOldest
+	if isNewestOffset {
+		offset = sarama.OffsetNewest
+	}
 	// 初始化消费端
 	if kafkaClient.conf.Consumer.Enabled {
 		config := sarama.NewConfig()
 		config.Version = sarama.V2_2_0_0
 		config.Consumer.Return.Errors = true
 		config.Consumer.Offsets.AutoCommit.Enable = true
-		config.Consumer.Offsets.Initial = sarama.OffsetOldest
+		config.Consumer.Offsets.Initial = offset
 		config.Net.SASL.Enable = kafkaClient.conf.Consumer.SASLEnable
 		config.Net.SASL.User = kafkaClient.conf.Consumer.SASLUser
 		config.Net.SASL.Password = kafkaClient.conf.Consumer.SASLPwd

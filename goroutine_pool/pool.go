@@ -32,7 +32,7 @@ type TGoroutinePool struct {
 func (t *TGoroutinePool) worker(workerId int) {
 	defer func() {
 		if err := recover(); err != nil {
-			log.Println("崩溃： \n", string(debug.Stack()))
+			log.Println("崩溃 err", err, "\n", string(debug.Stack()))
 			go t.worker(workerId)
 		}
 	}()

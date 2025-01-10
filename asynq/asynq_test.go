@@ -2,7 +2,6 @@ package asynq
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 	"github.com/hibiken/asynq"
 	"testing"
@@ -20,27 +19,21 @@ func TestAsynq(t *testing.T) {
 	serv := NewAsynq(conf)
 	// 启动消费监听
 	topic := "test"
-	mux := asynq.NewServeMux()
-	mux.HandleFunc(topic, func(ctx context.Context, task *asynq.Task) error {
+	serv.SubscribeConsumer(topic, func(ctx context.Context, task *asynq.Task) error {
 		fmt.Println("consumer type:", task.Type(), "data:", string(task.Payload()))
 		return nil
 	})
-	if err := serv.Consumer.Start(mux); err != nil {
+
+	err := serv.Start()
+	if err != nil {
 		panic(err)
 	}
 
 	go func() {
-		// 启动生产
-		taskMsg := asynq.NewTask(topic, []byte("hello world"))
-		// 延迟发送
-		option := asynq.ProcessIn(time.Second * 10)
-		info, err := serv.Producer.Enqueue(taskMsg, option)
+		err = serv.Publisher(topic, "hello world", time.Second*10)
 		if err != nil {
 			panic(err)
 		}
-
-		data, _ := json.Marshal(info)
-		fmt.Println("---------- producer info:", string(data))
 	}()
 
 	time.Sleep(time.Second * 30)
